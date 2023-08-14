@@ -22,7 +22,7 @@ class OceanModel:
         self.predictor = LinearDiscriminantAnalysis()
 
     def feature_extraction(self, dataframe):
-        return dataframe
+        return dataframe[["close"]]
 
     def format_train_data(self, path):
         data = pd.read_csv(path)
@@ -70,6 +70,7 @@ class OceanModel:
     def predict(self, last_candles):
         dataframe = copy.deepcopy(last_candles)
         dataframe = self.feature_extraction(dataframe)
+        print(dataframe.head())
         yhat = self.model.predict(dataframe.values[[-1], :])
         return yhat
 
