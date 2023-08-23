@@ -70,10 +70,9 @@ class OceanModel:
     def predict(self, last_candles):
         dataframe = copy.deepcopy(last_candles)
         dataframe = self.feature_extraction(dataframe)
-        print(dataframe.head())
-        confidence = self.model.predict_proba(dataframe.values[[-1], :])
-        yhat = self.model.predict(dataframe.values[[-1], :])
-        return yhat, confidence
+        prob = self.model.predict_proba(dataframe.values[[-1], :])[0]
+        yhat = self.model.predict(dataframe.values[[-1], :])[0]
+        return yhat, prob[yhat]
 
     def back_test_crossval(self, nfolds, path):
         model = Pipeline(
