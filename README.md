@@ -1,4 +1,4 @@
-# Prediction model for predictor system
+# Prediction model for predictoor system
 
 This repository implements a basic prediction model for asset pricing. This should be used as a template to build upon. The problem at hand is one of classification where we aim to predict whether the upcoming closing value will be either higher or lower compared to the previous value. In other words, we are attempting to forecast the trend of the prices, not their specific amounts. In this context, a target value of 1 indicates an increase in price, while a 0 signifies a decrease.
 
